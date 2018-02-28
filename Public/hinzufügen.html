@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hinzufügen</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+    />
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Notenmanagement</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Fach</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Klasse</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="hinzufügen.html">Hinzufügen</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <center style="margin-top: 5%">
+        <h1>Test hinzufügen</h1>
+
+        <div style="margin-left: 5%;margin-right: 5%">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Test Name</span>
+                </div>
+                <input type="text" class="form-control" id="Name" value="" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Fach</label>
+                </div>
+                <select class="custom-select" id="Fach">
+            <option selected>KSN</option>
+            <option >FSST</option>
+            <option >SEN</option>
+            <option >MTRS</option>
+        </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Klasse</label>
+                </div>
+                <select class="custom-select" id="Klasse">
+            <option selected>1AHELS</option>
+            <option >2AHELS</option>
+            <option >3AHELS</option>
+            <option >4AHELS</option>
+            <option >5AHELS</option>
+        </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Art</label>
+                </div>
+                <select class="custom-select" id="Art" value="">
+            <option selected>Test</option>
+            <option >Lernzielkontrolle</option>
+            <option >Schularbeit</option>
+        </select>
+            </div>
+
+            <form method="post">
+                <div class="form-group">
+                    <input class="form-control" id="Date" name="date" placeholder="DD/MM/YYYY" type="text" value=""/>
+                </div>
+            </form>
+        </div>
+
+        <button class="btn btn-primary" onclick="submit()" name="submit" type="submit">Submit</button>
+
+
+    </center>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+
+
+    <script src="hinzufügen.js"></script>
+
+</body>
+
+</html>
