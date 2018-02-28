@@ -19,4 +19,6 @@ function submit() {
     
     
     console.log(name+" "+fach+" "+klasse+" "+date+" "+art)
+
+    
 }
