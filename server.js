@@ -15,9 +15,16 @@ app.listen(3000,function() {
 })
 
 //----------------- Daten von Testanlage ------------------------
-app.get('/show/fach/:klasse/fach/:fach', function(req,res) {
-    let klasse = req.params.klasse
-    let fach = req.params.fach
+app.get('/show/klasse/:klasse', function(req,res) {
+    let stringklasse = req.params.klasse
+    let klasseobj = stringklasse.split('/')
+    let klasse = klasseobj[0]
+    let fach = klasseobj[1]
+
+    console.log(klasse + fach)
+
+
+
     
     //Datenbank Daten holen
     // ....
