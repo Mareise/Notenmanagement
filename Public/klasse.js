@@ -9,6 +9,8 @@ x = a.split('=')
 klasse = x[1];
 console.log(klasse)
 
+let data
+
 
 function mathe() {
     let xhttp = new XMLHttpRequest();
@@ -23,6 +25,7 @@ function mathe() {
         if (this.status == 200) {
             console.log('status=200')
             //console.log(this.responseText)
+            data=this.responseText;
             console.log(JSON.parse(this.responseText))
         } else {
             console.log("buuu")
@@ -34,5 +37,16 @@ function mathe() {
 
     xhttp.send();
 
+    show();
+    
+}
 
+function show() {
+    let table = '<table> <tr> <th>Datum</th><th>Art</th><th>Test Name</th></tr>';
+    table += '<tr><td>'+ '12.1.2018' + '</td><td>' + 'LZK' + '</td><td>' + 'Differenzieren' + '</td></tr>'
+    table += '</table>'
+
+    console.log(table)
+
+    document.getElementById('TestListe').innerHTML = table;
 }
