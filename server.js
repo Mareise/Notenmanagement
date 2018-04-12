@@ -6,6 +6,28 @@ const app=express()
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
+// -------- Datenbank verbinden ---------------------------
+
+var mysql = require('mysql');
+var connection = mysql.createConnection(
+{
+    host: '82.211.19.79',
+    user: 'davenote',
+    password: 'davenote',
+    database: 'davenote',
+});
+connection.connect();
+
+// ---- Datenbank Test -----------
+
+connection.query('SELECT * from Schueler', function (
+    error, results, fields) {
+    if (error) {
+    console.log(error)
+    return
+    }
+    console.log('The solution is: ', results[0].solution)
+});
 // --------------------------------------------------------
 console.log('Server starts')
 
