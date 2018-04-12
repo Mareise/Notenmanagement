@@ -17,7 +17,7 @@ app.listen(3000,function() {
 //----------------- Daten von Testanlage ------------------------
 app.get('/show/klasse/:klasse', function(req,res) {
     let stringklasse = req.params.klasse
-    let klasseobj = stringklasse.split('/')
+    let klasseobj = stringklasse.split('&')
     let klasse = klasseobj[0]
     let fach = klasseobj[1]
 

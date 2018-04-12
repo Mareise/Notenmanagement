@@ -13,9 +13,9 @@ console.log(klasse)
 function mathe() {
     let xhttp = new XMLHttpRequest();
     let fach = 'Mathe'
-    string = klasse + fach;
+    string = klasse + '&' + fach;
 
-    let query = "/show/klasse/:" + string;
+    let query = "/show/klasse/" + string;
     console.log(query);
     xhttp.open("GET", query, true);
 
@@ -31,4 +31,8 @@ function mathe() {
     }
 
     xhttp.send();
+
+
+
+    
 }
