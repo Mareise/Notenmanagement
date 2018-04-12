@@ -1,6 +1,5 @@
 const express=require('express')
 const bodyParser=require('body-parser')
-const mysql = require('mysql')
 
 const app=express()
 
@@ -15,5 +14,50 @@ app.listen(3000,function() {
     console.log('server running and listening on port 3000')
 })
 
-//----------------- neue ------------------------
+//----------------- Daten von Testanlage ------------------------
+app.get('/show/fach/:klasse/fach/:fach', function(req,res) {
+    let klasse = req.params.klasse
+    let fach = req.params.fach
+    
+    //Datenbank Daten holen
+    // ....
+    //
+
+    var fachmath = {
+        '01.01.2001, Addieren, max. Punkte: 30': [
+            {name: 'David Diermayr',        points: '29', grade: '1'},
+            {name: 'Maximilian Reisecker',  points: '30', grade: '1'},
+            {name: 'Lukas Fehkührer',       points: '7' , grade: '5'}
+        ],
+        '05.05.2005, Subtrahieren, max.Punkte: 20': [
+            {name: 'David Diermayr',        points: '20', grade: '1'},
+            {name: 'Maximilian Reisecker',  points: '20', grade: '1'},
+            {name: 'Lukas Fehkührer',       points: '10', grade: '4'}
+        ]
+    }
+
+    var fachfsst = {
+        '01.01.2001, Addieren, max. Punkte: 30': [
+            {name: 'David Diermayr',        points: '24', grade: '1'},
+            {name: 'Maximilian Reisecker',  points: '20', grade: '1'},
+            {name: 'Lukas Fehkührer',       points: '7' , grade: '5'}
+        ],
+        '05.05.2005, Subtrahieren, max.Punkte: 20': [
+            {name: 'David Diermayr',        points: '20', grade: '1'},
+            {name: 'Maximilian Reisecker',  points: '20', grade: '1'},
+            {name: 'Lukas Fehkührer',       points: '10', grade: '4'}
+        ]
+    }
+
+    var fachmathe = JSON.stringify(fach)
+    var fachfsst = JSON.stringify(fach)
+
+    if (fach == 'Mathe') {
+        res.status(204).send(fachmathe)
+    }
+    if (fach == 'Fsst') {
+        res.status(204).send(fachfsst)
+    }
+
+})
 
