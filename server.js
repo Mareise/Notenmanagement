@@ -26,7 +26,7 @@ connection.query('SELECT * from Schueler', function (
     console.log(error)
     return
     }
-    console.log('The solution is: ', results[0].solution)
+    console.log('The solution is: ', results)
 });
 // --------------------------------------------------------
 console.log('Server starts')
