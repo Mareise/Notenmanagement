@@ -50,33 +50,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
     
     //Datenbank Daten holen
     // ....
-    //
-
-    var fachmath = {
-        '01.01.2001, Addieren, max. Punkte: 30': [
-            {name: 'David Diermayr',        points: '29', grade: '1'},
-            {name: 'Maximilian Reisecker',  points: '30', grade: '1'},
-            {name: 'Lukas Fehkührer',       points: '7' , grade: '5'}
-        ],
-        '05.05.2005, Subtrahieren, max.Punkte: 20': [
-            {name: 'David Diermayr',        points: '20', grade: '1'},
-            {name: 'Maximilian Reisecker',  points: '20', grade: '1'},
-            {name: 'Lukas Fehkührer',       points: '10', grade: '4'}
-        ]
-    }
-
-    var fachfsst = {
-        '01.01.2001, Addieren, max. Punkte: 30': [
-            {name: 'David Diermayr',        points: '24', grade: '1'},
-            {name: 'Maximilian Reisecker',  points: '20', grade: '1'},
-            {name: 'Lukas Fehkührer',       points: '7' , grade: '5'}
-        ],
-        '05.05.2005, Subtrahieren, max.Punkte: 20': [
-            {name: 'David Diermayr',        points: '20', grade: '1'},
-            {name: 'Maximilian Reisecker',  points: '20', grade: '1'},
-            {name: 'Lukas Fehkührer',       points: '10', grade: '4'}
-        ]
-    }
+    
 
     var fachmathe = JSON.stringify(fachmath)
     var fachfsstt = JSON.stringify(fachfsst)
