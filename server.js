@@ -53,9 +53,11 @@ app.get('/show/fach/:klasse/fach/:fach', function(req,res) {
     var fachfsst = JSON.stringify(fach)
 
     if (fach == 'Mathe') {
+        console.log('Mathe gefunden')
         res.status(204).send(fachmathe)
     }
     if (fach == 'Fsst') {
+        console.log('FSST gefunden')
         res.status(204).send(fachfsst)
     }
 
