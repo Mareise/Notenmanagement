@@ -56,8 +56,8 @@ app.get('/show/klasse/:klasse', function(req,res) {
         ]
     }
 
-    var fachmathe = JSON.stringify(fach)
-    var fachfsst = JSON.stringify(fach)
+    var fachmathe = JSON.stringify(fachmath)
+    var fachfsstt = JSON.stringify(fachfsst)
 
     if (fach == 'Mathe') {
         console.log('Mathe gefunden')
@@ -65,7 +65,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
     }
     if (fach == 'Fsst') {
         console.log('FSST gefunden')
-        res.status(204).send(fachfsst)
+        res.status(204).send(fachfsstt)
     }
 
 })
