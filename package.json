@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/Mareise/Notenmanagement#readme",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.16.3",
+=======
+    "express": "^4.16.2",
+>>>>>>> 1483b95f7806758d9421b8ba7358e31d720534aa
     "mysql": "^2.15.0"
   }
 }
