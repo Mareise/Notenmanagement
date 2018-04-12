@@ -10,15 +10,42 @@ $(document).ready(function(){
     date_input.datepicker(options);
 })
 
+let newTest = { 
+    name: "", 
+    fach: "",
+    klasse: "",
+    art: "",
+    date: ""};
+
+
 function submit() {
-    let name = document.getElementById("Name").value
-    let fach = document.getElementById("Fach").value
-    let klasse = document.getElementById("Klasse").value
-    let art = document.getElementById("Art").value
-    let date = document.getElementById("Date").value
+    newTest.name = document.getElementById("Name").value
+    newTest.fach = document.getElementById("Fach").value
+    newTest.klasse = document.getElementById("Klasse").value
+    newTest.art = document.getElementById("Art").value
+    newTest.date = document.getElementById("Date").value
     
     
-    console.log(name+" "+fach+" "+klasse+" "+date+" "+art)
+    console.log(newTest.name+" "+newTest.fach+" "+newTest.klasse+" "+newTest.date+" "+newTest.art)
+
+    let xhttp = new XMLHttpRequest();
+
+    let query = "/add/data/" + JSON.stringify(newTest);
+    console.log(query);
+    xhttp.open("GET", query, true);
+
+    xhttp.onload = function () {
+        if (this.status == 200) {
+            console.log("JUHUUUUUUUUUU")
+        } else {
+            console.log("buuu")
+        }
+    }
+    xhttp.onerror = function () {
+        console.log("Error")
+    }
+
+    xhttp.send();
 
     
 }
