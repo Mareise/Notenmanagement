@@ -58,7 +58,7 @@ app.get('/show/test/:testid', function (req, res) {
     let testid = req.params.testid
 
 // Datenbank Testergebnisse holen
-connection.query('SELECT * from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid', function (
+connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid', function (
     error, results, fields) {
     if (error) {
         console.log(error)
