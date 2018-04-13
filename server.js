@@ -39,7 +39,7 @@ app.get('/show/klasse/:klasse', function (req, res) {
     console.log(klasse + fach)
 
     // Datenbank Daten holen
-    connection.query('SELECT * from Schueler', function (
+    connection.query('SELECT datum,art,beschreibung from Test', function (
         error, results, fields) {
         if (error) {
             console.log(error)
@@ -50,15 +50,9 @@ app.get('/show/klasse/:klasse', function (req, res) {
         
         console.log('111')
         res.status(200).send(results)
-        //res.send('bla bla')
         console.log('222')
     })
 
-    //res.send('bla bla')
-        console.log('333')
-
-    //var fachmathe = JSON.stringify(fachmath)
-    //var fachfsstt = JSON.stringify(fachfsst)
 
     if (fach == 'Mathe') {
         //console.log(result)
