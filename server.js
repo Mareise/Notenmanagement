@@ -34,6 +34,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
     let klasseobj = stringklasse.split('&')
     let klasse = klasseobj[0]
     let fach = klasseobj[1]
+    let result
 
     console.log(klasse + fach)
 
@@ -45,6 +46,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
         return
         }
         console.log('The solution is: ', results)
+        result = results
         /*
         res.status(200).send("hallo")
     // ....
