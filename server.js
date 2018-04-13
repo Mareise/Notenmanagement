@@ -58,7 +58,7 @@ app.get('/show/test/:testid', function (req, res) {
     let testid = req.params.testid
 
 // Datenbank Testergebnisse holen
-connection.query('SELECT * from Test WHERE tid='+testid, function (
+connection.query('SELECT * from Ergebnisse WHERE tid='+testid, function (
     error, results, fields) {
     if (error) {
         console.log(error)
