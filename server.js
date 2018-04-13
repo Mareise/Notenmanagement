@@ -38,24 +38,25 @@ app.get('/show/klasse/:klasse', function(req,res) {
     console.log(klasse + fach)
 
      // Datenbank Daten holen
-  /*  connection.query('SELECT * from Schueler', function (
+        connection.query('SELECT * from Schueler', function (
         error, results, fields) {
         if (error) {
         console.log(error)
         return
         }
         console.log('The solution is: ', results)
-        
+        /*
         res.status(200).send("hallo")
     // ....
-     }); */
+    */
+     })
     
 
     //var fachmathe = JSON.stringify(fachmath)
     //var fachfsstt = JSON.stringify(fachfsst)
 
     if (fach == 'Mathe') {
-        res.status(200).send("Hallo")
+        res.status(200).send(JSON.stringify(results))
     }
     if (fach == 'Fsst') {
         console.log('FSST gefunden')
