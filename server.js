@@ -39,7 +39,7 @@ app.get('/show/klasse/:klasse', function (req, res) {
     console.log(klasse + fach)
 
     // Datenbank Daten holen
-    connection.query('SELECT datum,art,beschreibung from Test', function (
+    connection.query('SELECT * from Test', function (
         error, results, fields) {
         if (error) {
             console.log(error)
