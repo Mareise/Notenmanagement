@@ -25,7 +25,7 @@ function mathe() {
         if (this.status == 200) {
             console.log('status=200')
             //console.log(this.responseText)
-            data=this.responseText;
+            //data=this.responseText;
             console.log(JSON.parse(this.responseText))
         } else {
             console.log("buuu")
@@ -37,7 +37,7 @@ function mathe() {
 
     xhttp.send();
 
-    show();
+    //show();
     
 }
 

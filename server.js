@@ -18,16 +18,7 @@ var connection = mysql.createConnection(
 });
 connection.connect();
 
-// ---- Datenbank Test -----------
 
-connection.query('SELECT * from Schueler', function (
-    error, results, fields) {
-    if (error) {
-    console.log(error)
-    return
-    }
-    console.log('The solution is: ', results)
-});
 // --------------------------------------------------------
 console.log('Server starts')
 
@@ -54,7 +45,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
         }
         console.log('The solution is: ', results)
         
-        res.status(200).send(JSON.stringify(results))
+        res.status(200).send("hallo")
     // ....
 });
     
