@@ -45,7 +45,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
         console.log(error)
         return
         }
-        console.log('The solution is: ', results)
+        //console.log('The solution is: ', results)
         result = results
         /*
         res.status(200).send("hallo")
@@ -58,7 +58,8 @@ app.get('/show/klasse/:klasse', function(req,res) {
     //var fachfsstt = JSON.stringify(fachfsst)
 
     if (fach == 'Mathe') {
-        res.status(200).send(JSON.stringify(results))
+        console.log(result)
+        res.status(200).send(JSON.stringify(result))
     }
     if (fach == 'Fsst') {
         console.log('FSST gefunden')
