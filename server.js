@@ -53,7 +53,8 @@ app.get('/show/klasse/:klasse', function(req,res) {
         return
         }
         console.log('The solution is: ', results)
-        res.status(200).send(results)
+        
+        res.status(200).send(JSON.stringify(results))
     // ....
 });
     
