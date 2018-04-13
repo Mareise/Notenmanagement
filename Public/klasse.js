@@ -14,7 +14,7 @@ let data
 
 function mathe() {
     let xhttp = new XMLHttpRequest();
-    let fach = 'Mathe'
+    let fach = 'Mathematik'
     string = klasse + '&' + fach;
 
     let query = "/show/klasse/" + string;
@@ -61,26 +61,10 @@ function show() {
 }
 
 function senden(tid) {
-    let xhttp = new XMLHttpRequest();
-    let fach = 'Mathe'
-    string = klasse + '&' + fach;
+    console.log("senden("+ tid + ")")
+    //window.open("localhost:3000/notenansicht?"+"tid=" + tid + "&action=edit","_self")
 
-    let query = "/show/test/" + tid;
-    console.log(query);
-    xhttp.open("GET", query, true);
+    window.location.replace("localhost:3000/notenansicht?tid='" + tid + "'&action='edit'");
 
-    xhttp.onload = function () {
-        if (this.status == 200) {
-            console.log('status=200')
-            console.log(this.responseText)
-            //console.log(JSON.parse(this.responseText))
-        } else {
-            console.log("buuu")
-        }
-    }
-    xhttp.onerror = function () {
-        console.log("Error")
-    }
-
-    xhttp.send();
+    location.href = "localhost:3000/notenansicht?tid='" + tid + "'&action='edit'";
 }
