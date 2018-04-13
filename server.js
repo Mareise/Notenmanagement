@@ -18,8 +18,8 @@ var connection = mysql.createConnection(
 });
 connection.connect();
 
+// ---------------------------------------------------------
 
-// --------------------------------------------------------
 console.log('Server starts')
 
 // Auf diesen Port antwortet der Server
@@ -27,7 +27,8 @@ app.listen(3000,function() {
     console.log('server running and listening on port 3000')
 })
 
-//----------------- Daten von Testanlage ------------------------
+//----------------- Daten von Testanlage --------------------
+
 app.get('/show/klasse/:klasse', function(req,res) {
     let stringklasse = req.params.klasse
     let klasseobj = stringklasse.split('&')
@@ -37,7 +38,7 @@ app.get('/show/klasse/:klasse', function(req,res) {
     console.log(klasse + fach)
 
      // Datenbank Daten holen
-    connection.query('SELECT * from Schueler', function (
+  /*  connection.query('SELECT * from Schueler', function (
         error, results, fields) {
         if (error) {
         console.log(error)
@@ -47,9 +48,9 @@ app.get('/show/klasse/:klasse', function(req,res) {
         
         res.status(200).send("hallo")
     // ....
-});
+     }); */
     
-/*
+
     var fachmathe = JSON.stringify(fachmath)
     var fachfsstt = JSON.stringify(fachfsst)
 
@@ -60,5 +61,4 @@ app.get('/show/klasse/:klasse', function(req,res) {
         console.log('FSST gefunden')
         res.status(204).send(fachfsstt)
     }
-*/
 })
