@@ -34,11 +34,12 @@ app.get('/show/klasse/:klasse', function (req, res) {
     let klasseobj = stringklasse.split('&')
     let klasse = klasseobj[0]
     let fach = klasseobj[1]
+    console.log(fach)
 
     console.log(klasse + fach)
 
     // Datenbank Testdaten holen
-    connection.query('SELECT * from Test', function (
+    connection.query('SELECT * from Test JOIN Fach ON Test.fid=Fach.fid WHERE Test.fid='+fach, function (
         error, results, fields) {
         if (error) {
             console.log(error)
@@ -71,3 +72,5 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
     console.log('222')
     })
 })
+
+// -------------------------------------------
