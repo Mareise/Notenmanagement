@@ -51,14 +51,14 @@ app.get('/show/klasse/:klasse', function(req,res) {
      }); */
     
 
-    var fachmathe = JSON.stringify(fachmath)
-    var fachfsstt = JSON.stringify(fachfsst)
+    //var fachmathe = JSON.stringify(fachmath)
+    //var fachfsstt = JSON.stringify(fachfsst)
 
     if (fach == 'Mathe') {
-        res.status(200).send(fachmathe)
+        res.status(200).send("Hallo")
     }
     if (fach == 'Fsst') {
         console.log('FSST gefunden')
-        res.status(204).send(fachfsstt)
+        //res.status(200).send(fachfsstt)
     }
 })

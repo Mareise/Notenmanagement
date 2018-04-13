@@ -24,9 +24,9 @@ function mathe() {
     xhttp.onload = function () {
         if (this.status == 200) {
             console.log('status=200')
-            //console.log(this.responseText)
+            console.log(this.responseText)
             //data=this.responseText;
-            console.log(JSON.parse(this.responseText))
+            //console.log(JSON.parse(this.responseText))
         } else {
             console.log("buuu")
         }
