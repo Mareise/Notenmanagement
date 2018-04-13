@@ -45,13 +45,19 @@ app.get('/show/klasse/:klasse', function(req,res) {
 
     console.log(klasse + fach)
 
-
-
-    
-    //Datenbank Daten holen
+     // Datenbank Daten holen
+    connection.query('SELECT * from Schueler', function (
+        error, results, fields) {
+        if (error) {
+        console.log(error)
+        return
+        }
+        console.log('The solution is: ', results)
+        res.status(200).send(results)
     // ....
+});
     
-
+/*
     var fachmathe = JSON.stringify(fachmath)
     var fachfsstt = JSON.stringify(fachfsst)
 
@@ -62,6 +68,5 @@ app.get('/show/klasse/:klasse', function(req,res) {
         console.log('FSST gefunden')
         res.status(204).send(fachfsstt)
     }
-
+*/
 })
-
