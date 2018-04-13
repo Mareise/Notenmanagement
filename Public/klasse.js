@@ -37,14 +37,19 @@ function mathe() {
 
     xhttp.send();
 
-    //show();
+    show();
     
 }
 
 function show() {
-    let table = '<table> <tr> <th>Datum</th><th>Art</th><th>Test Name</th></tr>';
-    table += '<tr><td>'+ '12.1.2018' + '</td><td>' + 'LZK' + '</td><td>' + 'Differenzieren' + '</td></tr>'
-    table += '</table>'
+    
+
+    let table = '<table class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Datum</th><th scope="col">Art</th><th scope="col">Beschreibung</th>  </tr> <thead>';
+    table += '<tbody>'
+    for (let i=0;i<3;i++) {
+        table += '<tr><th scope="col">'+ '12.1.2018' + '</th><td>' + 'LZK' + '</td><td>' + 'Differenzieren' + '</td>  <td><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Anzeigen</button></td> </tr>'
+    }
+    table += '</tbody></table>'
 
     console.log(table)
 
