@@ -27,18 +27,17 @@ app.listen(3000, function () {
     console.log('server running and listening on port 3000')
 })
 
-//----------------- Daten von Testanlage --------------------
+//----------------- Daten von Tests senden --------------------
 
 app.get('/show/klasse/:klasse', function (req, res) {
     let stringklasse = req.params.klasse
     let klasseobj = stringklasse.split('&')
     let klasse = klasseobj[0]
     let fach = klasseobj[1]
-    let result
 
     console.log(klasse + fach)
 
-    // Datenbank Daten holen
+    // Datenbank Testdaten holen
     connection.query('SELECT * from Test', function (
         error, results, fields) {
         if (error) {
@@ -46,20 +45,29 @@ app.get('/show/klasse/:klasse', function (req, res) {
             return
         }
         console.log('The solution is: ', results)
-        result = results
         
         console.log('111')
         res.status(200).send(results)
         console.log('222')
     })
+})
 
+// ------------------ Testergebnisse senden -------------------
 
-    if (fach == 'Mathe') {
-        //console.log(result)
-        //res.status(200).send(JSON.stringify(result))
+app.get('/show/test/:testid', function (req, res) {
+    let testid = req.params.testid
+
+// Datenbank Testergebnisse holen
+connection.query('SELECT * from Test WHERE tid='+testid, function (
+    error, results, fields) {
+    if (error) {
+        console.log(error)
+        return
     }
-    if (fach == 'Fsst') {
-        console.log('FSST gefunden')
-        //res.status(200).send(fachfsstt)
-    }
+    console.log('The solution is: ', results)
+    
+    console.log('111')
+    res.status(200).send(results)
+    console.log('222')
+    })
 })
