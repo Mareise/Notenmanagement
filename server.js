@@ -73,4 +73,4 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
     })
 })
 
-// -------------------------------------------
+// --------------------------------------------------------------
