@@ -39,7 +39,7 @@ app.get('/show/klasse/:klasse', function (req, res) {
     console.log(klasse + fach)
 
     // Datenbank Testdaten holen
-    connection.query('SELECT * from Test JOIN Fach ON Test.fid=Fach.fid WHERE Test.fid='+fach, function (
+    connection.query("SELECT  Test.tid,Test.fid,Test.kid,Test.datum,Test.art,Test.testname FROM Klasse JOIN Test JOIN Fach ON Klasse.kid=Test.kid AND Fach.fid=Test.fid WHERE Klasse.klassenname='"+klasse+"' AND Fach.fachname='"+fach+"'", function (
         error, results, fields) {
         if (error) {
             console.log(error)
@@ -59,7 +59,7 @@ app.get('/show/test/:testid', function (req, res) {
     let testid = req.params.testid
 
 // Datenbank Testergebnisse holen
-connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE tid='+testid, function (
+connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (
     error, results, fields) {
     if (error) {
         console.log(error)
