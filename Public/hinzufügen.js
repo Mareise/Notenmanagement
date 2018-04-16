@@ -31,9 +31,9 @@ function submit() {
 
     let xhttp = new XMLHttpRequest();
 
-    let query = "/add/data/" + JSON.stringify(newTest);
+    let query = "/add/data/";
     console.log(query);
-    xhttp.open("GET", query, true);
+    xhttp.open("POST", query, true);
 
     xhttp.onload = function () {
         if (this.status == 200) {
@@ -45,8 +45,8 @@ function submit() {
     xhttp.onerror = function () {
         console.log("Error")
     }
-
-    xhttp.send();
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(JSON.stringify(newTest));
 
     
 }

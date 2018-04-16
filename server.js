@@ -72,13 +72,11 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
 
 // ---------------------Test hinzufügen----------------------
 
-app.get('/add/data/:hinzuf', function (req, res) {
-    let hinzuf = req.params.hinzuf
-
-    console.log(hinzuf)
+app.post('/add/data/', function (req, res) {
+    console.log(req.body);
 
 // Datenbank Testergebnisse holen
-connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (
+/*connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (
     error, results, fields) {
     if (error) {
         console.log(error)
@@ -89,5 +87,6 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
 
     res.status(200).send(results)
     console.log('222')
-    })
+    })*/
+    res.status(200).send("hallo")
 })
