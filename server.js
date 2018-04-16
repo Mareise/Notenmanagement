@@ -47,9 +47,7 @@ app.get('/show/klasse/:klasse', function (req, res) {
         }
         console.log('The solution is: ', results)
         
-        console.log('111')
         res.status(200).send(results)
-        console.log('222')
     })
 })
 
@@ -67,10 +65,27 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
     }
     console.log('The solution is: ', results)
     
-    console.log('111')
+    res.status(200).send(results)
+
+    })
+})
+
+// ---------------------Test hinzufügen----------------------
+
+app.get('/add/data/:jsonstring', function (req, res) {
+    let jsonstring = req.params.testid
+
+// Datenbank Testergebnisse holen
+connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (
+    error, results, fields) {
+    if (error) {
+        console.log(error)
+        return
+    }
+    console.log('The solution is: ', results)
+    
+
     res.status(200).send(results)
     console.log('222')
     })
 })
-
-// --------------------------------------------------------------
