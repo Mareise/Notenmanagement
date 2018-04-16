@@ -72,8 +72,10 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
 
 // ---------------------Test hinzufügen----------------------
 
-app.get('/add/data/:jsonstring', function (req, res) {
-    let jsonstring = req.params.testid
+app.get('/add/data/:hinzuf', function (req, res) {
+    let hinzuf = req.params.hinzuf
+
+    console.log(hinzuf)
 
 // Datenbank Testergebnisse holen
 connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerkung from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (
