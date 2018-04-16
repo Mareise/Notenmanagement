@@ -15,7 +15,8 @@ let newTest = {
     fach: "",
     klasse: "",
     art: "",
-    date: ""};
+    date: ""
+};
 
 
 function submit() {

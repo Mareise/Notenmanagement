@@ -51,7 +51,7 @@ function show() {
     for (let i=0;i<data.length;i++) {
         let datum = data[i].datum.split('T');
         data[i].datum = datum[0];
-        table += '<tr><th scope="col">'+ data[i].datum + '</th><td>' + data[i].art + '</td><td>' + data[i].testname + '</td>  <td><button type="button" onclick="senden(' + data[i].tid +  ')" class="btn btn-primary btn-rounded btn-sm my-0">Anzeigen</button></td> </tr>'
+        table += '<tr><th scope="col">'+ data[i].datum + '</th><td>' + data[i].art + '</td><td>' + data[i].testname + '</td>  <td> <a href="notenansicht.html?tid='+ data[i].tid +'&action=show" <button type="button" class="btn btn-primary btn-rounded btn-sm my-0">Anzeigen</button> </a> </td> </tr>'
     }
     table += '</tbody></table>'
 
@@ -60,11 +60,3 @@ function show() {
     document.getElementById('TestListe').innerHTML = table;
 }
 
-function senden(tid) {
-    console.log("senden("+ tid + ")")
-    //window.open("localhost:3000/notenansicht?"+"tid=" + tid + "&action=edit","_self")
-
-    window.location.replace("localhost:3000/notenansicht?tid='" + tid + "'&action='edit'");
-
-    location.href = "localhost:3000/notenansicht?tid='" + tid + "'&action='edit'";
-}
