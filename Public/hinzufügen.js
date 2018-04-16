@@ -33,11 +33,13 @@ function submit() {
 
     let query = "/add/data/";
     console.log(query);
-    xhttp.open("POST", query, true);
+    xhttp.open("POST", "/add/data/", true);
+    //xhttp.setRequestHeader("Content-Type", "application/json");
 
     xhttp.onload = function () {
         if (this.status == 200) {
             console.log("JUHUUUUUUUUUU")
+            console.log(this.responseText)
         } else {
             console.log("buuu")
         }
@@ -45,8 +47,9 @@ function submit() {
     xhttp.onerror = function () {
         console.log("Error")
     }
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send(JSON.stringify(newTest));
+    console.log("Stringify: "+ JSON.stringify(newTest))
+    //xhttp.send(JSON.stringify(newTest));
+    xhttp.send("HalliHallo");
 
     
 }
