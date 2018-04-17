@@ -94,3 +94,17 @@ app.get('/add/data/:data', function (req, res) {
 
     res.status(200).send("Saved")
 })
+
+app.get('/add/data/', function (req, res) {
+
+    connection.query("SELECT Schueler.vn,Schueler.nn FROM Schueler JOIN Klasse ON Schueler.kid=Klasse.kid WHERE Klasse.klassenname='"+newTestH.klasseH+"'", function (
+        error, results, fields) {
+        if (error) {
+            console.log(error)
+            return
+        }
+        console.log('The solution is: ', results)
+
+    res.status(200).send(results)
+    })
+})
