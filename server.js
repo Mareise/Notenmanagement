@@ -72,9 +72,10 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
 
 // ---------------------Test hinzufügen----------------------
 
-app.post('/add/data/', function (req, res) {
+app.get('/add/data/:data', function (req, res) {
     console.log('ASDFG')
-    console.log(req.body);
+    let data = req.params.data
+    console.log(data)
 
 // Datenbank Testergebnisse holen
 /*connection.query('SELECT Schueler.vn,Schueler.nn from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (

@@ -2,7 +2,7 @@ $(document).ready(function(){
     var date_input=$('input[name="date"]'); //our date input has the name "date"
     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
     var options={
-    format: 'mm/dd/yyyy',
+    format: 'mm-dd-yyyy',
     container: container,
     todayHighlight: true,
     autoclose: true,
@@ -27,19 +27,20 @@ function submit() {
     newTest.date = document.getElementById("Date").value
     
     
-    console.log(newTest.name+" "+newTest.fach+" "+newTest.klasse+" "+newTest.date+" "+newTest.art)
+    console.log(newTest)
 
     let xhttp = new XMLHttpRequest();
 
-    let query = "/add/data/";
+    let query = "/add/data/" + JSON.stringify(newTest);
     console.log(query);
-    xhttp.open("POST", "/add/data/", true);
+    xhttp.open("GET", query, true);
     //xhttp.setRequestHeader("Content-Type", "application/json");
 
     xhttp.onload = function () {
         if (this.status == 200) {
             console.log("JUHUUUUUUUUUU")
             console.log(this.responseText)
+            location.href = "noteneingabe.html";
         } else {
             console.log("buuu")
         }
@@ -48,8 +49,7 @@ function submit() {
         console.log("Error")
     }
     console.log("Stringify: "+ JSON.stringify(newTest))
-    //xhttp.send(JSON.stringify(newTest));
-    xhttp.send("HalliHallo");
+    xhttp.send();
 
     
 }
