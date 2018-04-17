@@ -61,8 +61,8 @@ function anzeigen() {
     for(let i=0; i<data.length; i++){
         
         table += '<tr>'
-        table += '<th scope="col">'+data[i].vn+'</th>'
-        table += '<td>'+data[i].nn+'</td>'
+        table += '<th scope="col">'+schueler[i].vn+'</th>'
+        table += '<td>'+schueler[i].nn+'</td>'
         table += '<td><select class="browser-default"><option id="note" value="" disabled selected>Note</option><option value="1">gefehlt</option><option value="2">1</option><option value="3">2</option><option value="4">3</option><option value="5">4</option><option value="6">5</option></select></td>' 
         table += '<td> <div class="input-field col s6"><input placeholder="Anmerkung" id="comment" type="text" class="validate"></div></td>'
 
