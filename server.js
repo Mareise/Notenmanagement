@@ -6,6 +6,8 @@ const app = express()
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
+let eintrag
+
 
 // -------- Datenbank verbinden ---------------------------
 
@@ -92,8 +94,10 @@ app.get('/getting/data/:klasse', function (req, res) {
 
 app.get('/posting/data/:eintrag', function (req, res) {
     console.log("a")
-    let eintrag = req.params.eintrag
-    console.log(JSON.parse(eintrag[0].note))
+    let a = req.params.eintrag
+ 
+    eintrag = JSON.parse(a)
+    console.log(JSON.parse(a))
 
     res.status(200).send()
 })
