@@ -1,11 +1,12 @@
 let xhttp = new XMLHttpRequest();
+console.log("noteneingabe.js")
 
 let schueler = { 
     vn: "",
     vn: ""
 };
 
-let query = "/get/data/";
+let query = "/getting/data/";
 console.log(query);
 xhttp.open("GET", query, true);
 //xhttp.setRequestHeader("Content-Type", "application/json");
@@ -14,6 +15,7 @@ xhttp.onload = function () {
     if (this.status == 200) {
         console.log("JUHUUUUUUUUUU")
         console.log(this.responseText)
+        show()
 
     } else {
         console.log("buuu")
@@ -22,7 +24,7 @@ xhttp.onload = function () {
 xhttp.onerror = function () {
     console.log("Error")
 }
-console.log("Stringify: " + JSON.stringify())
+
 xhttp.send();
 
 function show() {
