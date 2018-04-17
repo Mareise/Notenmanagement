@@ -6,6 +6,17 @@ const app = express()
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
+// ----- Variablen -------------
+
+let newTestH = {
+    testnameH: "",
+    fachH: "",
+    klasseH: "",
+    artH: "",
+    datumH: ""    
+};
+
+
 // -------- Datenbank verbinden ---------------------------
 
 var mysql = require('mysql');
@@ -77,18 +88,9 @@ app.get('/add/data/:data', function (req, res) {
     let data = req.params.data
     console.log(data)
 
-// Datenbank Testergebnisse holen
-/*connection.query('SELECT Schueler.vn,Schueler.nn from Ergebniss JOIN Schueler ON Ergebniss.sid=Schueler.sid WHERE Ergebniss.tid='+testid, function (
-    error, results, fields) {
-    if (error) {
-        console.log(error)
-        return
-    }
-    console.log('The solution is: ', results)
-    
+    newTestH = JSON.parse(data)
+    console.log(newTestH)
 
-    res.status(200).send(results)
-    console.log('222')
-    })*/
-    res.status(200).send("hallo")
+
+    res.status(200).send("Saved")
 })
