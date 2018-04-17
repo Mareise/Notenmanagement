@@ -62,7 +62,7 @@ function submit() {
 function anzeigen() {
 
     let divgrades = document.getElementById('ansicht')
-    let table = '<table class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Nachname</th><th scope="col">Vorname</th><th scope="col">Note</th> <th scope="col">Anmerkung</th>  </tr> <thead>'
+    let table = '<table style="margin-top: 5%" class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Nachname</th><th scope="col">Vorname</th><th scope="col">Note</th> <th scope="col">Anmerkung</th>  </tr> <thead>'
     table += '<tbody>'
     for(let i=0; i<schueler.length; i++){
         
@@ -72,7 +72,7 @@ function anzeigen() {
 
         table += '<td><select class="custom-select" id="note' + i +  '"><option selected>Note</option><option>gefehlt</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td>' 
         
-        table += '<td> <div class="input-field col s6"><input placeholder="Anmerkung" id="anmerkung' + i +  '" type="text" class="validate"></div></td>'
+        table += '<td> <div class="input-group mb-3"><input placeholder="Anmerkung" id="anmerkung' + i +  '" type="text" class="form-control"></div></td>'
 
         
         table += '</tr>'
