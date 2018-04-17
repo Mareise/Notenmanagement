@@ -89,3 +89,22 @@ app.get('/getting/data/:klasse', function (req, res) {
     res.status(200).send(results)
     })
 })
+
+// -------------- Schueler suchen ---------------------------
+
+app.get('/suche/nachname/:nachname', function (req, res) {
+    console.log("afkdfh")
+    let nachname = req.params.nachname
+    console.log(nachname)
+
+    connection.query("SELECT Fach.fachname, Test.testname, Test.datum, Test.art, Ergebniss.note, Ergebniss.Anmerkung FROM Fach JOIN Test JOIN Ergebniss JOIN Schueler ON Test.fid=Fach.fid AND Test.tid=Ergebniss.tid AND Ergebniss.sid=Schueler.sid WHERE Schueler.nn='"+nachname+"'", function (
+        error, results, fields) {
+        if (error) {
+            console.log(error)
+            return
+        }
+        console.log('The solution is: ', results)
+
+    res.status(200).send(results)
+    })
+})
