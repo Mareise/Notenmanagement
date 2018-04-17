@@ -45,22 +45,3 @@ function show() {
     document.getElementById('ansicht').innerHTML = table;
 }
 
-function enterGrades(grades){
-    let divgrades = document.getElementById('noten')
-    let noteneingabe ="<table><thead><tr><th>Vorname</th><th>Nachname</th><th>Punkte</th><th>Note</th><th>Kommentar</th></thead><tbody>"
-    
-    for(let eingabe=0; eingabe<data.length; eingabe++){
-        
-        noteneingabe += '<tr>'
-        noteneingabe += '<td>'+data[eingabe].first+'</td>'
-        noteneingabe += '<td>'+data[eingabe].last+'</td>'
-        noteneingabe += '<td> <div class="input-field col s6"><input placeholder="Punkte" id="points" type="number" class="validate"></div></td>'
-        noteneingabe += '<td><select class="browser-default"><option id="note" value="" disabled selected>Note</option><option value="1">gefehlt</option><option value="2">1</option><option value="3">2</option><option value="4">3</option><option value="5">4</option><option value="6">5</option></select></td>' 
-        noteneingabe += '<td> <div class="input-field col s6"><input placeholder="Kommentar" id="comment" type="text" class="validate"></div></td>'
-
-        
-        noteneingabe += '</tr>'
-    }
-    noteneingabe+="</tbody></table>"
-    divgrades.innerHTML = noteneingabe
-}
