@@ -15,7 +15,13 @@ let newTest = {
     fach: "",
     klasse: "",
     art: "",
-    date: ""
+    date: "",
+    schueler: {
+        vn: "",
+        nn: "",
+        note: "",
+        anmerkung: ""
+    }
 };
 
 let schueler = { 
@@ -43,7 +49,7 @@ function submit() {
         if (this.status == 200) {
             console.log("JUHUUUUUUUUUU")
             console.log(this.responseText)
-            schueler = JSON.parse(this.responseText)
+            newTest.schueler = JSON.parse(this.responseText)
             anzeigen()
 
         } else {
@@ -64,11 +70,11 @@ function anzeigen() {
     let divgrades = document.getElementById('ansicht')
     let table = '<table style="margin-top: 5%" class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Nachname</th><th scope="col">Vorname</th><th scope="col">Note</th> <th scope="col">Anmerkung</th>  </tr> <thead>'
     table += '<tbody>'
-    for(let i=0; i<schueler.length; i++){
+    for(let i=0; i<newTest.schueler.length; i++){
         
         table += '<tr>'
-        table += '<th scope="col">'+schueler[i].vn+'</th>'
-        table += '<td>'+schueler[i].nn+'</td>'
+        table += '<th scope="col">'+newTest.schueler[i].vn+'</th>'
+        table += '<td>'+newTest.schueler[i].nn+'</td>'
 
         table += '<td><select class="custom-select" id="note' + i +  '"><option selected>Note</option><option>gefehlt</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td>' 
         
@@ -86,15 +92,17 @@ function anzeigen() {
 }
 
 function schicken() {
-    for (let i = 0; i< schueler.length; i++){
-        schueler[i].note = document.getElementById("note"+i).value
-        schueler[i].anmerkung = document.getElementById("anmerkung"+i).value
+    for (let i = 0; i< newTest.schueler.length; i++){
+        newTest.schueler[i].note = document.getElementById("note"+i).value
+        newTest.schueler[i].anmerkung = document.getElementById("anmerkung"+i).value
     }
-    console.log(schueler)
+    console.log(newTest)
+
+    let query = "/posting/data/" + JSON.stringify(newTest);
+    console.log(query);
 
     let xhttp = new XMLHttpRequest();
-    let query = "/posting/data/" + JSON.stringify(schueler);
-    console.log(query);
+    
     xhttp.open("GET", query, true);
 
     xhttp.onload = function () {
