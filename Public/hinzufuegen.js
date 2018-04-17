@@ -20,7 +20,9 @@ let newTest = {
 
 let schueler = { 
     vn: "",
-    nn: ""
+    nn: "",
+    note: "",
+    anmerkung: ""
 };
 
 function submit() {
@@ -62,19 +64,52 @@ function anzeigen() {
     let divgrades = document.getElementById('ansicht')
     let table = '<table class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Nachname</th><th scope="col">Vorname</th><th scope="col">Note</th> <th scope="col">Anmerkung</th>  </tr> <thead>'
     table += '<tbody>'
-    for(let i=0; i<data.length; i++){
+    for(let i=0; i<schueler.length; i++){
         
         table += '<tr>'
         table += '<th scope="col">'+schueler[i].vn+'</th>'
         table += '<td>'+schueler[i].nn+'</td>'
-        table += '<td><select class="browser-default"><option id="note" value="" disabled selected>Note</option><option value="1">gefehlt</option><option value="2">1</option><option value="3">2</option><option value="4">3</option><option value="5">4</option><option value="6">5</option></select></td>' 
-        table += '<td> <div class="input-field col s6"><input placeholder="Anmerkung" id="comment" type="text" class="validate"></div></td>'
+
+        table += '<td><select class="custom-select" id="note' + i +  '"><option selected>Note</option><option>gefehlt</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td>' 
+        
+        table += '<td> <div class="input-field col s6"><input placeholder="Anmerkung" id="anmerkung' + i +  '" type="text" class="validate"></div></td>'
 
         
         table += '</tr>'
     }
     table+="</tbody></table>"
+    table+="<center>"
+    table+=' <button class="btn btn-primary" onclick="schicken()" name="submit" type="submit">Submit</button>'
+    table+="</center>"
     divgrades.innerHTML = table
 
+}
+
+function schicken() {
+    for (let i = 0; i< schueler.length; i++){
+        schueler[i].note = document.getElementById("note"+i).value
+        schueler[i].anmerkung = document.getElementById("anmerkung"+i).value
+    }
+    console.log(schueler)
+
+    let xhttp = new XMLHttpRequest();
+    let query = "/posting/data/" + JSON.stringify(schueler);
+    console.log(query);
+    xhttp.open("GET", query, true);
+
+    xhttp.onload = function () {
+        console.log("onload")
+        if (this.status == 200) {
+            console.log("JUHUUUUUUUUUU")
+            console.log(this.responseText)
+        } else {
+            console.log("buuu")
+        }
+    }
+    xhttp.onerror = function () {
+        console.log("Error")
+    }
+
+    xhttp.send()   
 }
 
