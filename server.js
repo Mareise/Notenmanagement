@@ -90,6 +90,16 @@ app.get('/getting/data/:klasse', function (req, res) {
     })
 })
 
+app.get('/posting/data/:eintrag', function (req, res) {
+    console.log("a")
+    let eintrag = req.params.eintrag
+    console.log(JSON.parse(eintrag[0].note))
+
+    res.status(200).send()
+})
+
+
+
 // -------------- Schueler suchen ---------------------------
 
 app.get('/suche/nachname/:nachname', function (req, res) {
