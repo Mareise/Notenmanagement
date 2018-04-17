@@ -21,10 +21,11 @@ function suchen() {
             console.log("buuu")
         }
     }
-    console.log("vor onerror")
     xhttp.onerror = function () {
         console.log("Error")
     }
+
+    xhttp.send();
 }
 
 function show() {

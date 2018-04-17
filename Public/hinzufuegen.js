@@ -52,6 +52,9 @@ function submit() {
     xhttp.onerror = function () {
         console.log("Error")
     }
+
+    xhttp.send()    
+
 }
 
 function anzeigen() {
