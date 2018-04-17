@@ -34,9 +34,10 @@ function submit() {
     let query = "/getting/data/" + newTest.klasse;
     console.log(query);
     xhttp.open("GET", query, true);
-    //xhttp.setRequestHeader("Content-Type", "application/json");
 
+    console.log("nach xhttp.open")
     xhttp.onload = function () {
+        console.log("onload")
         if (this.status == 200) {
             console.log("JUHUUUUUUUUUU")
             console.log(this.responseText)
@@ -47,10 +48,10 @@ function submit() {
             console.log("buuu")
         }
     }
+    console.log("vor onerror")
     xhttp.onerror = function () {
         console.log("Error")
     }
-    console.log(newTest)
 }
 
 function anzeigen() {
