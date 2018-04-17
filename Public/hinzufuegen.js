@@ -41,7 +41,7 @@ function submit() {
         if (this.status == 200) {
             console.log("JUHUUUUUUUUUU")
             console.log(this.responseText)
-            schueler = JSON.parse(responseText)
+            schueler = JSON.parse(this.responseText)
             anzeigen()
 
         } else {

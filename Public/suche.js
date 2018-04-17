@@ -14,7 +14,7 @@ function suchen() {
         if (this.status == 200) {
             console.log("JUHUUUUUUUUUU")
             console.log(this.responseText)
-            data = JSON.parse(responseText)
+            data = JSON.parse(this.responseText)
             show()
 
         } else {
@@ -29,10 +29,12 @@ function suchen() {
 }
 
 function show() {
-    let table = '<table class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Nachname</th><th scope="col">Vorname</th><th scope="col">Note</th> <th scope="col">Anmerkung</th>  </tr> <thead>';
+    let table = '<table class="table table-striped table-responsive-md btn-table"> <thead> <tr> <th scope="col">Fach</th><th scope="col">Test</th><th scope="col">Datum</th><th scope="col">Note</th> <th scope="col">Anmerkung</th>  </tr> <thead>';
     table += '<tbody>'
     for (let i=0;i<data.length;i++) {
-        table += '<tr><th scope="col">'+ data[i].nn + '</th><td>' + data[i].vn + '</td><td>' + data[i].note + '</td> <td>' + data[i].Anmerkung + '</td> </tr>'
+        let datum = data[i].datum.split('T');
+        data[i].datum = datum[0];
+        table += '<tr><th scope="col">'+ data[i].fachname + '</th><td>' + data[i].testname +'</th><td>' + data[i].datum + '</td><td>' + data[i].note + '</td> <td>' + data[i].Anmerkung + '</td> </tr>'
     }
     table += '</tbody></table>'
 
