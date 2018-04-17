@@ -1,6 +1,6 @@
 let xhttp = new XMLHttpRequest();
 
-let query = "/get/data/" + JSON.stringify(newTest);
+let query = "/get/data/";
 console.log(query);
 xhttp.open("GET", query, true);
 //xhttp.setRequestHeader("Content-Type", "application/json");
