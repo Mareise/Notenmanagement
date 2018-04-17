@@ -95,9 +95,12 @@ app.get('/add/data/:data', function (req, res) {
     res.status(200).send("Saved")
 })
 
-app.get('/getting/data/', function (req, res) {
+app.get('/getting/data/:klasse', function (req, res) {
 
-    console.log(newTestH.klasseH)
+    let klasse = req.params.data
+    console.log(klasse)
+
+    console.log(newTestH)
 
     connection.query("SELECT Schueler.vn,Schueler.nn FROM Schueler JOIN Klasse ON Schueler.kid=Klasse.kid WHERE Klasse.klassenname='"+newTestH.klasseH+"'", function (
         error, results, fields) {
