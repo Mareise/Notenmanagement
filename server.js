@@ -97,10 +97,8 @@ app.get('/add/data/:data', function (req, res) {
 
 app.get('/getting/data/:klasse', function (req, res) {
 
-    let klasse = req.params.data
+    let klasse = req.params.klasse
     console.log(klasse)
-
-    console.log(newTestH)
 
     connection.query("SELECT Schueler.vn,Schueler.nn FROM Schueler JOIN Klasse ON Schueler.kid=Klasse.kid WHERE Klasse.klassenname='"+newTestH.klasseH+"'", function (
         error, results, fields) {
