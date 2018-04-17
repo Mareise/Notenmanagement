@@ -6,16 +6,6 @@ const app = express()
 app.use(express.static('public'))
 app.use(bodyParser.json())
 
-// ----- Variablen -------------
-
-let newTestH = {
-    testnameH: "",
-    fachH: "",
-    klasseH: "",
-    artH: "",
-    datumH: ""    
-};
-
 
 // -------- Datenbank verbinden ---------------------------
 
@@ -83,20 +73,8 @@ connection.query('SELECT Schueler.vn,Schueler.nn,Ergebniss.note,Ergebniss.Anmerk
 
 // ---------------------Test hinzufügen----------------------
 
-app.get('/add/data/:data', function (req, res) {
-    console.log('ASDFG')
-    let data = req.params.data
-    console.log(data)
-
-    newTestH = JSON.parse(data)
-    console.log(newTestH)
-
-
-    res.status(200).send("Saved")
-})
-
 app.get('/getting/data/:klasse', function (req, res) {
-
+    console.log("afkdfh")
     let klasse = req.params.klasse
     console.log(klasse)
 
