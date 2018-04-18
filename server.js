@@ -112,9 +112,9 @@ app.get('/posting/data/:eintrag', function (req, res) {
 
     // Test anlegen
     connection.query("INSERT INTO Test (tid,fid,kid,datum,art,testname) VALUES" +
-        " (NULL,'SELECT fid FROM Fach WHERE Fach.fachname='" + fach +
-        "','SELECT kid FROM Klasse WHERE Klasse.klassenname='" + klasse +
-        "','" + date + "','" + art + "','" + name + "');", function (
+        " (NULL,(SELECT fid FROM Fach WHERE Fach.fachname='" + fach +
+        "'),(SELECT kid FROM Klasse WHERE Klasse.klassenname=`" + klasse +
+        "'),'" + date + "','" + art + "','" + name + "');", function (
             error, results, fields) {
             if (error) {
                 console.log(error)
@@ -133,9 +133,9 @@ app.get('/posting/data/:eintrag', function (req, res) {
 
         // Schüler-Id holen
             connection.query("INSERT INTO Ergebniss (eid,tid,sid,note,anmerkung)"+
-            " VALUES (NULL,'SELECT tid FROM Test WHERE Test.testname='"+name+
-            "','SELECT sid FROM Schueler WHERE Schueler.nn='" + nn + 
-            "','" + note + "','" + anmerkung + "');", function (
+            " VALUES (NULL,(SELECT tid FROM Test WHERE Test.testname='"+name+
+            "'),(SELECT sid FROM Schueler WHERE Schueler.nn='" + nn + 
+            "'),'" + note + "','" + anmerkung + "');", function (
                 error, results, fields) {
                 if (error) {
                     console.log(error)
