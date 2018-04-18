@@ -141,7 +141,9 @@ app.get('/posting/data/:eintrag', function (req, res) {
                     console.log(error)
                     return
                 }
+                console.log(results)
             })  
+            
     }
 
     res.status(200).send("success")
